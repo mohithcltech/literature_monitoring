@@ -81,7 +81,7 @@ def get_genai_response(articles):
 
         client = AzureOpenAI(
             azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
-            api_key='https://ajayopenaiinstance.openai.azure.com/',
+            api_key='24c67f9f1f844378980152d5ce05ae63',
             api_version="2024-02-15-preview"
         )
 
@@ -96,9 +96,9 @@ def get_genai_response(articles):
         
         first_response = response.choices[0].message.content
 
-        event_data = check_adverse_event(first_response)
+        event_data = check_adverse_event(first_response, client)
         # print("event_data++", event_data)
-        adverse_events,product_quality_complaints,positive_attribution,drug_implications = article_analaysis(first_response)
+        adverse_events,product_quality_complaints,positive_attribution,drug_implications = article_analaysis(first_response, client)
         # print("adverse_events", adverse_events)
         # print("product_quality_complaints", product_quality_complaints)
         
@@ -155,19 +155,13 @@ def get_genai_response(articles):
     return list_article
 
     
-def check_adverse_event(response_data):
+def check_adverse_event(response_data, client):
     context = "you are health care expert!"
     context_str = """Provide Y or N for each below flag using above article.
         Adverse Event   
         Non Adverse Event   
         Positive Attribution    
         Negative Attributionnt"""
-
-    client = AzureOpenAI(
-        azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
-        api_key='24c67f9f1f844378980152d5ce05ae63',
-        api_version="2024-02-15-preview"
-    )
 
     # Send request to Azure OpenAI model
     response = client.chat.completions.create(
@@ -183,19 +177,13 @@ def check_adverse_event(response_data):
     return event_data
 
 
-def article_analaysis(response_data):
+def article_analaysis(response_data, client):
     context = "you are health care expert!"
     condation = """List all the Adverse Events, drug, device, vaccine realetd Product Quality Complaints, 
         Positive Attributions and Implication of DrugLeading to Events 
         septerately """
 
-    client = AzureOpenAI(
-        azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
-        api_key='24c67f9f1f844378980152d5ce05ae63',
-        api_version="2024-02-15-preview"
-    )
-
-    # Send request to Azure OpenAI model
+     # Send request to Azure OpenAI model
     response = client.chat.completions.create(
         model="mygpt4",
         messages=[
