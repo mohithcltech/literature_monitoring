@@ -82,11 +82,10 @@
 <body>
     <div class="container">
         <div class="left-side">
-            <img src="{{ url_for('static', filename='images/GenAI logo.png') }}" alt="Tool Logo">
-            <p><span style="font-weight: bold; color: #0056b3;">Welcome to Automation</span>, This tool automates the process of validating user data from the Kaiser Permanente portal. It allows you to upload an Excel file containing user records, automatically logs into the portal, and retrieves member information. The system compares the extracted data with the uploaded file and generates detailed reports with screenshots, highlighting any discrepancies. After the process is completed, you can download comprehensive reports for each record, making data validation quick, accurate, and efficient.</p>
+            <p><span style="font-weight: bold; color: #0056b3;">Welcome to Literature Monitoring</span>, By using this tool we can find drug's adverse event & non-adverse event and also we can get whether this contains positive attribute or negative attibute.</p>
         </div>
         <div class="right-side">
-            <h2>Gen AI</h2>
+            <h2>Literature Monitoring</h2>
             {% if message %}
                 <p class="error-message">{{ message }}</p>
             {% endif %}
