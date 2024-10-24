@@ -80,8 +80,8 @@ def get_genai_response(articles):
         prompt = article['abstract']
 
         client = AzureOpenAI(
-            azure_endpoint='https://saikiran12.openai.azure.com/',
-            api_key='6042fad59491499ca0ddd0a010536195',
+            azure_endpoint='',
+            api_key='',
             api_version="2024-02-15-preview"
         )
 
@@ -164,8 +164,8 @@ def check_adverse_event(response_data):
         Negative Attributionnt"""
 
     client = AzureOpenAI(
-        azure_endpoint='https://saikiran12.openai.azure.com/',
-        api_key='6042fad59491499ca0ddd0a010536195',
+        azure_endpoint='',
+        api_key='',
         api_version="2024-02-15-preview"
     )
 
@@ -190,8 +190,8 @@ def article_analaysis(response_data):
         septerately """
 
     client = AzureOpenAI(
-        azure_endpoint='https://saikiran12.openai.azure.com/',
-        api_key='6042fad59491499ca0ddd0a010536195',
+        azure_endpoint='',
+        api_key='',
         api_version="2024-02-15-preview"
     )
 
