@@ -80,14 +80,14 @@ def get_genai_response(articles):
         prompt = article['abstract']
 
         client = AzureOpenAI(
-            azure_endpoint='',
-            api_key='',
+            azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
+            api_key='https://ajayopenaiinstance.openai.azure.com/',
             api_version="2024-02-15-preview"
         )
 
         # Send request to Azure OpenAI model
         response = client.chat.completions.create(
-            model="GenAIEngine",
+            model="mygpt4",
             messages=[
                 {"role": "system", "content": context},
                 {"role": "user", "content": prompt + '\n' + context_str }
@@ -164,14 +164,14 @@ def check_adverse_event(response_data):
         Negative Attributionnt"""
 
     client = AzureOpenAI(
-        azure_endpoint='',
-        api_key='',
+        azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
+        api_key='24c67f9f1f844378980152d5ce05ae63',
         api_version="2024-02-15-preview"
     )
 
     # Send request to Azure OpenAI model
     response = client.chat.completions.create(
-        model="GenAIEngine",
+        model="mygpt4",
         messages=[
             {"role": "system", "content": context},
             {"role": "user", "content": response_data + '\n' + context_str}
@@ -190,14 +190,14 @@ def article_analaysis(response_data):
         septerately """
 
     client = AzureOpenAI(
-        azure_endpoint='',
-        api_key='',
+        azure_endpoint='https://ajayopenaiinstance.openai.azure.com/',
+        api_key='24c67f9f1f844378980152d5ce05ae63',
         api_version="2024-02-15-preview"
     )
 
     # Send request to Azure OpenAI model
     response = client.chat.completions.create(
-        model="GenAIEngine",
+        model="mygpt4",
         messages=[
             {"role": "system", "content": context},
             {"role": "user", "content": response_data + '\n' + condation}
