@@ -10,10 +10,12 @@ charset-normalizer==3.4.0
 click==8.1.7
 colorama==0.4.6
 distro==1.9.0
+et-xmlfile==1.1.0
 exceptiongroup==1.2.2
 Flask==3.0.3
 gitdb==4.0.11
 GitPython==3.1.43
+gunicorn==23.0.0
 h11==0.14.0
 httpcore==1.0.6
 httpx==0.27.2
@@ -29,6 +31,7 @@ mdurl==0.1.2
 narwhals==1.9.3
 numpy==2.1.2
 openai==1.52.2
+openpyxl==3.1.5
 packaging==24.1
 pandas==2.2.3
 pillow==10.4.0
@@ -56,5 +59,6 @@ tqdm==4.66.5
 typing_extensions==4.12.2
 tzdata==2024.2
 urllib3==2.2.3
+waitress==3.0.0
 watchdog==5.0.3
 Werkzeug==3.0.4
