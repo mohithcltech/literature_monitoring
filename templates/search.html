@@ -1,0 +1,104 @@
+{% extends "base.html" %} 
+{% block content %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+    <div class="col-lg-6 col-md-8 col-sm-10">
+        {% if message %}
+        <div class="alert alert-success mt-3">{{ message }}</div>
+        {% endif %}
+
+        <!-- Add descriptive text -->
+        <div class="mb-4 text-center">
+            <h4>Explore Medical Literature</h4>
+            <p>Use the search tool below to find scholarly articles on various medical topics. You can search for articles using keywords and find relevant results. Discover the latest research and findings in your field of interest.</p>
+        </div>
+
+        <!-- Search form with button inline -->
+        <form method="post" action="/search_query" enctype="multipart/form-data" onsubmit="showLoader()">
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" id="query" name="query" placeholder="Enter search keywords"required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom">Search</button>
+                <!-- <button type="submit" class="btn btn-fancy">Search</button> -->
+            </div>
+        </form>
+        <div id="loader" class="loader" style="display: none;"></div>
+    </div>
+</div>
+
+<!-- Display the articles if available -->
+<!-- {% if articles %}
+<div class="mt-4">
+    <h4>Search Results:</h4>
+    <ul class="list-group">
+        {% for article in articles %}
+        <li class="list-group-item">
+            <h5><a href="{{ article['url'] }}" target="_blank">{{ article['title'] }}</a></h5>
+            <p>{{ article['abstract'] }}</p>
+            <p><strong>Published: </strong>{{ article['publication_date'] }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %} -->
+
+<style>
+    /* Adjust height to prevent scroll bar */
+    body {
+        overflow-y: hidden;
+    }
+
+    .form-control {
+        background-color: rgb(240, 242, 246);
+        padding-right: 30px;
+        position: relative;
+        border-radius: 1rem;
+    }
+
+    .btn-fancy {
+        background-color: #007bff;
+        color: white;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        border: none;
+    }
+
+    .input-group .form-control {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .input-group .btn-fancy {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .list-group-item {
+        padding: 1.5rem;
+        border: 1px solid #ddd;
+        margin-bottom: 1rem;
+    }
+
+    .list-group-item h5 a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .list-group-item h5 a:hover {
+        text-decoration: underline;
+    }
+
+    .mb-4 h4 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #20558a;;
+    }
+
+    .mb-4 p {
+        font-size: 1rem;
+        color: #666;
+    }
+</style>
+
+{% endblock %}

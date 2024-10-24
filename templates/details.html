@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container my-4">
+    <h4 class="text-center">{{ article['Title'] }}</h4>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h5>Journal</h5>
+            <p>{{ article['Journal'] }}</p>
+        </div>
+        <div class="col-md-6">
+            <h5>Publication Date</h5>
+            <p>{{ article['Pub Date'] }}</p>aa
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h5>Abstract</h5>
+            <p>{{ article['Abstract'] }}</p>
+        </div>
+    </div>
+    <!-- <h2>Hypothetical Abstract</h2>
+    <p>This randomized controlled trial evaluated the effects of a structured physical activity (PA) program on mental health during the COVID-19 pandemic. Participants were assigned to either a 12-week PA program or a control group that received no intervention. The study found that participants in the PA group showed significant reductions in symptoms of anxiety and depression compared to the control group. However, 15% of the participants in the PA group reported experiencing muscle strain, and 10% reported fatigue. One individual in the PA group also reported severe joint pain. Additionally, two complaints were recorded about the quality of the provided resistance bands, citing breakage during exercises. Despite these issues, the majority of feedback indicated that the PA program was beneficial for mental health without any serious adverse events related to the program.</p> -->
+
+    <div class="section">
+        <h4>Adverse Events (AEs)</h4>
+        <ul class="list-items">
+            <!-- <li>{{ article['Adverse Events'] }}</li> -->
+            <li>Muscle strain (15% of PA group participants)</li>
+            <li>Fatigue (10% of PA group participants)</li>
+            <li>Severe joint pain (one individual in PA group)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h4>Product Quality Complaints (PQCs)</h4>
+        <ul class="list-items">
+            <!-- <li>{{ article['Adverse Events'] }}</li> -->
+            <li>Resistance bands breaking during exercises (two complaints)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h4>Positive Attribution</h4>
+        <ul class="list-items">
+            <li>Significant reductions in anxiety and depression symptoms attributed to the PA program</li>
+            <li>General positive feedback about mental health benefits</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h4>Implication of Drug Leading to Events</h4>
+        <p class="highlight">Not applicable (no drug involvement mentioned)</p>
+    </div>
+
+    <div class="section conclusion">
+        <h4>Conclusion</h4>
+        <ul class="list-items">
+            <li>Muscle strain (15% of PA group participants)</li>
+            <li>Fatigue (10% of PA group participants)</li>
+            <li>Severe joint pain (one individual in PA group)</li>
+            <li>Resistance bands breaking during exercises (two complaints)</li>
+            <li>Significant reductions in anxiety and depression symptoms attributed to the PA program</li>
+            <li>General positive feedback about mental health benefits</li>
+            <li><strong>Implication of Drug Leading to Events: </strong>Not applicable (no drug involvement mentioned)</li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .section {
+        margin-bottom: 20px;
+    }
+
+    .section p {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .highlight {
+        font-weight: bold;
+        color: #2a9d8f;
+    }
+
+    .list-items {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .list-items li {
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .list-items li:last-child {
+        border-bottom: none;
+    }
+
+    .conclusion {
+        background-color: #f0f0f0;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+</style>
+{% endblock %}

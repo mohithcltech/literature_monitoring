@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container my-4">
+    <h4 class="text-center">List of the Medical Literature</h4>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Sr. No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Adverse Event</th>
+                    <th scope="col">Non Adverse Event</th>
+                    <th scope="col">Positive Attribution</th>
+                    <th scope="col">Negative Attribution</th>
+                </tr>
+            </thead>
+            <tbody>a
+                {% for article in articles %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><a href="{{ url_for('article_details', uid=article['UID']) }}">{{ article['Title'] }}</a></td>
+                    <td>{{ article['Adverse Flag'] }}</td>
+                    <td>{{ article['Nonadverse Flag'] }}</td>a
+                    <td>{{ article['Positive Flag'] }}</td>
+                    <td>{{ article['Negative Flag'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
